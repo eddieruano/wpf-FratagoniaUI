@@ -10,4 +10,8 @@
     <Authors>Edward Ruano</Authors>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\UniProgressBarControl\UniProgressBarControl.csproj" />
+  </ItemGroup>
+
 </Project>

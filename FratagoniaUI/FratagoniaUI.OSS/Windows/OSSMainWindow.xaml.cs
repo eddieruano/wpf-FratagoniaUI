@@ -12,13 +12,23 @@ using System.Windows.Shapes;
 namespace FratagoniaUI.OSS.Windows
 {
   /// <summary>
-  /// Interaction logic for MainWindow.xaml
+  /// Interaction logic for OSSMainWindow.xaml
   /// </summary>
   public partial class OSSMainWindow : Window
   {
     public OSSMainWindow()
     {
       InitializeComponent();
+    }
+
+    private void UniProgressBarSample_Loaded(object sender, RoutedEventArgs e)
+    {
+      UniProgressBarControl.UniProgressBar uniProgressBar = sender as UniProgressBarControl.UniProgressBar;
+      if (uniProgressBar != null)
+      {
+        uniProgressBar.UniProgressBar_StartLoaded(sender, e);
+      }
+
     }
   }
 }
