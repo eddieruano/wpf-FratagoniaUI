@@ -68,10 +68,6 @@ namespace UniProgressBarControl
     //      new PropertyMetadata("0.0")); // Default value of 0.0
 
 
-
-
-
-
     public double CornerRadiusForFill
     {
       get { return (double)GetValue(CornerRadiusForFillProperty); }
