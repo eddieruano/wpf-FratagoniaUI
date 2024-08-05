@@ -35,6 +35,7 @@
             Height="5"
             MinWidth="100"
             MinHeight="40"
+            CornerRadiusForFill="5"
             DisplayTextHeight="10"
             FillTimeDuration="0:0:1"
             Foreground="Black"
