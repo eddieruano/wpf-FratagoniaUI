@@ -48,7 +48,6 @@
                                         BorderBrush="{TemplateBinding BorderBrush}"
                                         BorderThickness="{TemplateBinding BorderThickness}"
                                         CornerRadius="{Binding CornerRadiusForFill, RelativeSource={RelativeSource AncestorType={x:Type local:UniProgressBar}}}">
-                                        <!--<Rectangle Fill="{TemplateBinding Foreground}" />-->
                                         <Grid x:Name="PART_Track">
                                             <Rectangle
                                                 Fill="{TemplateBinding Background}"
@@ -89,31 +88,15 @@
                             Padding="3"
                             HorizontalAlignment="Center"
                             VerticalAlignment="Center"
+                            FontSize="{TemplateBinding FontSize}"
                             Foreground="{TemplateBinding Foreground}">
-                            <!--  Text="{Binding Value, ElementName=GlobalProgressBar, UpdateSourceTrigger=PropertyChanged}">  -->
                             <TextBlock.Text>
-
                                 <MultiBinding StringFormat="{}{0:0}%">
                                     <Binding ElementName="GlobalProgressBar" Path="Value" />
                                 </MultiBinding>
                             </TextBlock.Text>
                         </TextBlock>
                     </Grid>
-
-                    <!--<Border
-                        Background="{TemplateBinding Background}"
-                        BorderBrush="{TemplateBinding BorderBrush}"
-                        BorderThickness="{TemplateBinding BorderThickness}"
-                        CornerRadius="5">
-                        <Grid>
-                            <Rectangle
-                                x:Name="PART_Track"
-                                HorizontalAlignment="Left"
-                                Fill="{TemplateBinding Foreground}"
-                                RadiusX="5"
-                                RadiusY="5" />
-                        </Grid>
-                    </Border>-->
                 </ControlTemplate>
             </Setter.Value>
         </Setter>
