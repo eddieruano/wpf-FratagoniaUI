@@ -28,20 +28,29 @@
             HorizontalAlignment="Center"
             VerticalAlignment="Center"
             Text="UniProgressBar Sample" />
-        <UniProgressBarControl:UniProgressBar
-            x:Name="UniProgressBarSample"
+        <Border
             Grid.Row="1"
             Grid.Column="1"
-            Height="5"
-            MinWidth="100"
-            MinHeight="40"
-            CornerRadiusForFill="5"
-            DisplayTextHeight="10"
-            FillTimeDuration="0:0:1"
-            Foreground="Black"
-            Loaded="UniProgressBarSample_Loaded"
-            MaximumValue="100.0"
-            ProgressValue="69.0" />
+            HorizontalAlignment="Stretch"
+            VerticalAlignment="Stretch"
+            Background="Gray">
+            <UniProgressBarControl:UniProgressBar
+                x:Name="UniProgressBarSample"
+                Height="5"
+                MinWidth="100"
+                MinHeight="40"
+                Margin="5"
+                Background="White"
+                BorderThickness="0.5"
+                CornerRadiusForFill="5"
+                DisplayTextHeight="10"
+                FillTimeDuration="0:0:1"
+                FontWeight="Bold"
+                Foreground="Black"
+                Loaded="UniProgressBarSample_Loaded"
+                MaximumValue="100.0"
+                ProgressValue="69.0" />
+        </Border>
 
     </Grid>
 </Window>
