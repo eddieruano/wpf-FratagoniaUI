@@ -39,7 +39,7 @@ namespace UniProgressBarControl
   /// Step 2)
   /// Go ahead and use your control in the XAML file.
   ///
-  ///     <MyNamespace:CustomControl1/>
+  ///     <MyNamespace:UniProgressBarControl/>
   ///
   /// </summary>
   public class UniProgressBar : UserControl
@@ -49,36 +49,18 @@ namespace UniProgressBarControl
     /// </summary>
     #region DepenedencyProperties
 
-
-    //public string DisplayProgressValue
-    //{
-    //  get { 
-    //    return (string)GetValue(ProgressValueProperty); 
-    //  }
-    //  set { 
-    //    SetValue(ProgressValueProperty, value); 
-    //  }
-    //}
-
-    //public static readonly DependencyObject DisplayProgressValueProperty =
-    //    DependencyProperty.Register(
-    //      "DisplayProgressValue", 
-    //      typeof(string), 
-    //      typeof(UniProgressBar), 
-    //      new PropertyMetadata("0.0")); // Default value of 0.0
-
-
     public double CornerRadiusForFill
     {
       get { return (double)GetValue(CornerRadiusForFillProperty); }
       set { SetValue(CornerRadiusForFillProperty, value); }
     }
 
-    // Using a DependencyProperty as the backing store for CornerRadiusForFill.  This enables animation, styling, binding, etc...
     public static readonly DependencyProperty CornerRadiusForFillProperty =
-        DependencyProperty.Register("CornerRadiusForFill", typeof(double), typeof(UniProgressBar), new PropertyMetadata(0.0));
-
-
+        DependencyProperty.Register(
+          "CornerRadiusForFill", 
+          typeof(double), 
+          typeof(UniProgressBar), 
+          new PropertyMetadata(0.0));
 
     public string DisplayProgressValue
     {
@@ -94,20 +76,18 @@ namespace UniProgressBarControl
           typeof(UniProgressBar),
           new PropertyMetadata("0.0"));
 
-
-
-
     public int DisplayTextHeight
     {
       get { return (int)GetValue(DisplayTextHeightProperty); }
       set { SetValue(DisplayTextHeightProperty, value); }
     }
 
-    // Using a DependencyProperty as the backing store for DisplayTextHeight.  This enables animation, styling, binding, etc...
     public static readonly DependencyProperty DisplayTextHeightProperty =
-        DependencyProperty.Register("DisplayTextHeight", typeof(int), typeof(UniProgressBar), new PropertyMetadata(0));
-
-
+        DependencyProperty.Register(
+          "DisplayTextHeight", 
+          typeof(int), 
+          typeof(UniProgressBar), 
+          new PropertyMetadata(0)); // Default value of 0 int
 
     public double ProgressValue
     {
@@ -126,8 +106,6 @@ namespace UniProgressBarControl
           typeof(UniProgressBar), 
           new PropertyMetadata(0.0)); // Default value of 0.0
 
-
-
     public double MaximumValue
     {
       get { return (double)GetValue(MaximumValueProperty); }
@@ -142,8 +120,6 @@ namespace UniProgressBarControl
           new PropertyMetadata(100.0)); // Default value of 100.0
 
 
-
-
     public bool IsLoaded
     {
       get { return (bool)GetValue(IsLoadedProperty); }
@@ -156,9 +132,6 @@ namespace UniProgressBarControl
           typeof(bool),
           typeof(UniProgressBar), 
           new PropertyMetadata(false)); // Default value of false
-
-
-
 
 
     public Duration FillTimeDuration
