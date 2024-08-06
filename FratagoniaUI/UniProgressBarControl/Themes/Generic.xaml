@@ -31,8 +31,7 @@
                             x:Name="GlobalProgressBar"
                             Grid.Row="0"
                             Grid.Column="0"
-                            Height="{TemplateBinding Height}"
-                            VerticalAlignment="Center"
+                            Height="{TemplateBinding HeightForProgressBar}"
                             Background="{TemplateBinding Background}"
                             BorderBrush="{TemplateBinding ProgressValue,
                                                           Converter={StaticResource ProgressToColorConverter}}"
@@ -47,18 +46,18 @@
                                         Background="{TemplateBinding Background}"
                                         BorderBrush="{TemplateBinding BorderBrush}"
                                         BorderThickness="{TemplateBinding BorderThickness}"
-                                        CornerRadius="{Binding CornerRadiusForFill, RelativeSource={RelativeSource AncestorType={x:Type local:UniProgressBar}}}">
+                                        CornerRadius="{Binding CornerRadiusForFillIndicator, RelativeSource={RelativeSource AncestorType={x:Type local:UniProgressBar}}}">
                                         <Grid x:Name="PART_Track">
                                             <Rectangle
                                                 Fill="{TemplateBinding Background}"
-                                                RadiusX="5"
-                                                RadiusY="5" />
+                                                RadiusX="{Binding CornerRadiusForTrack, RelativeSource={RelativeSource AncestorType={x:Type local:UniProgressBar}}}"
+                                                RadiusY="{Binding CornerRadiusForTrack, RelativeSource={RelativeSource AncestorType={x:Type local:UniProgressBar}}}" />
                                             <Rectangle
                                                 x:Name="PART_Indicator"
                                                 HorizontalAlignment="Left"
                                                 Fill="{TemplateBinding Foreground}"
-                                                RadiusX="5"
-                                                RadiusY="5" />
+                                                RadiusX="{Binding CornerRadiusForFillIndicator, RelativeSource={RelativeSource AncestorType={x:Type local:UniProgressBar}}}"
+                                                RadiusY="{Binding CornerRadiusForFillIndicator, RelativeSource={RelativeSource AncestorType={x:Type local:UniProgressBar}}}" />
                                         </Grid>
                                     </Border>
                                 </ControlTemplate>
@@ -84,7 +83,6 @@
                         </ProgressBar>
                         <TextBlock
                             Grid.Column="1"
-                            Margin="2"
                             Padding="3"
                             HorizontalAlignment="Center"
                             VerticalAlignment="Center"

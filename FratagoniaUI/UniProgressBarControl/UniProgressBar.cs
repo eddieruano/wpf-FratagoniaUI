@@ -49,18 +49,49 @@ namespace UniProgressBarControl
     /// </summary>
     #region DepenedencyProperties
 
-    public double CornerRadiusForFill
+    /// Adding in order to target the height of the innerProgressBar without affecting the number display on the right
+    public double HeightForProgressBar
     {
-      get { return (double)GetValue(CornerRadiusForFillProperty); }
-      set { SetValue(CornerRadiusForFillProperty, value); }
+      get { return (double)GetValue(HeightForProgressBarProperty); }
+      set { SetValue(HeightForProgressBarProperty, value); }
     }
 
-    public static readonly DependencyProperty CornerRadiusForFillProperty =
+    public static readonly DependencyProperty HeightForProgressBarProperty =
         DependencyProperty.Register(
-          "CornerRadiusForFill", 
+          "HeightForProgressBar", 
           typeof(double), 
           typeof(UniProgressBar), 
-          new PropertyMetadata(0.0));
+          new PropertyMetadata(5.0)); // Just picking a default of 5 so it's at least visible instead of hiding at a potential 0
+
+
+
+
+    /// Adding this for specific control of the track within the inner ProgressBar
+    public double CornerRadiusForTrack
+    {
+      get { return (double)GetValue(CornerRadiusForTrackProperty); }
+      set { SetValue(CornerRadiusForTrackProperty, value); }
+    }
+
+    public static readonly DependencyProperty CornerRadiusForTrackProperty =
+        DependencyProperty.Register(
+          "CornerRadiusForTrack", 
+          typeof(double), 
+          typeof(UniProgressBar), 
+          new PropertyMetadata(0.0)); // Default value of 0.0 aka no rounding
+
+    public double CornerRadiusForFillIndicator
+    {
+      get { return (double)GetValue(CornerRadiusForFillIndicatorProperty); }
+      set { SetValue(CornerRadiusForFillIndicatorProperty, value); }
+    }
+
+    public static readonly DependencyProperty CornerRadiusForFillIndicatorProperty =
+        DependencyProperty.Register(
+          "CornerRadiusForFillIndicator", 
+          typeof(double), 
+          typeof(UniProgressBar), 
+          new PropertyMetadata(0.0)); // Default value of 0.0 aka no rounding
 
     public string DisplayProgressValue
     {
@@ -68,7 +99,6 @@ namespace UniProgressBarControl
       set { SetValue(DisplayProgressValueProperty, value); }
     }
 
-    // Using a DependencyProperty as the backing store for DisplayProgressValue.  This enables animation, styling, binding, etc...
     public static readonly DependencyProperty DisplayProgressValueProperty =
         DependencyProperty.Register(
           "DisplayProgressValue",
@@ -120,15 +150,15 @@ namespace UniProgressBarControl
           new PropertyMetadata(100.0)); // Default value of 100.0
 
 
-    public bool IsLoaded
+    public bool IsBarLoaded
     {
-      get { return (bool)GetValue(IsLoadedProperty); }
-      set { SetValue(IsLoadedProperty, value); }
+      get { return (bool)GetValue(IsBarLoadedProperty); }
+      set { SetValue(IsBarLoadedProperty, value); }
     }
 
-    public static readonly DependencyProperty IsLoadedProperty =
+    public static readonly DependencyProperty IsBarLoadedProperty =
         DependencyProperty.Register(
-          "IsLoaded", 
+          "IsBarLoaded", 
           typeof(bool),
           typeof(UniProgressBar), 
           new PropertyMetadata(false)); // Default value of false
@@ -156,11 +186,11 @@ namespace UniProgressBarControl
     {
       /// Guard checks
       if (sender== null) { return; }
-      if (sender is ProgressBar == false) { return; }
+      if (sender is ProgressBar == false) { return;}
 
       // Set the progress bar value in easing
-      ProgressBar progBar = sender as ProgressBar;
-      if (progBar.Value > 0)
+      ProgressBar? progBar = sender as ProgressBar;
+      if (progBar?.Value > 0)
       {
         DoubleAnimation animation = new DoubleAnimation
         {
@@ -173,7 +203,7 @@ namespace UniProgressBarControl
         // Start the animation
         progBar.BeginAnimation(ProgressBar.ValueProperty, animation);
         // Set _isLoaded
-        IsLoaded = true;
+        IsBarLoaded = true;
       }
     }
     #endregion NativeMethods
