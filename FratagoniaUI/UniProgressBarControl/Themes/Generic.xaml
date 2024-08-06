@@ -15,7 +15,7 @@
                     </ControlTemplate.Resources>
                     <Grid>
                         <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="0.8*" />
                             <ColumnDefinition Width="0.2*" />
                         </Grid.ColumnDefinitions>
                         <Grid.RowDefinitions>
@@ -49,10 +49,6 @@
                                         CornerRadius="{Binding CornerRadiusForFillIndicator, RelativeSource={RelativeSource AncestorType={x:Type local:UniProgressBar}}}">
                                         <Grid x:Name="PART_Track">
                                             <Rectangle
-                                                Fill="{TemplateBinding Background}"
-                                                RadiusX="{Binding CornerRadiusForTrack, RelativeSource={RelativeSource AncestorType={x:Type local:UniProgressBar}}}"
-                                                RadiusY="{Binding CornerRadiusForTrack, RelativeSource={RelativeSource AncestorType={x:Type local:UniProgressBar}}}" />
-                                            <Rectangle
                                                 x:Name="PART_Indicator"
                                                 HorizontalAlignment="Left"
                                                 Fill="{TemplateBinding Foreground}"
@@ -67,7 +63,7 @@
                                     <BeginStoryboard>
                                         <Storyboard>
                                             <DoubleAnimation
-                                                FillBehavior="Stop"
+                                                FillBehavior="HoldEnd"
                                                 Storyboard.TargetProperty="Value"
                                                 From="0"
                                                 To="{TemplateBinding ProgressValue}"
@@ -82,6 +78,7 @@
                             </ProgressBar.Triggers>
                         </ProgressBar>
                         <TextBlock
+                            x:Name="GlobalPercentageTextBlock"
                             Grid.Column="1"
                             Padding="3"
                             HorizontalAlignment="Center"
@@ -90,7 +87,7 @@
                             Foreground="{TemplateBinding Foreground}">
                             <TextBlock.Text>
                                 <MultiBinding StringFormat="{}{0:0}%">
-                                    <Binding ElementName="GlobalProgressBar" Path="Value" />
+                                    <Binding Path="ProgressValue" RelativeSource="{RelativeSource AncestorType={x:Type local:UniProgressBar}}" />
                                 </MultiBinding>
                             </TextBlock.Text>
                         </TextBlock>
