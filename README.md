@@ -1,6 +1,6 @@
 # wpf-FratagoniaUI
 
-Collection of multipurpose C# WPF sleek controls in development at EddieLabs.
+Collection of multipurpose C# WPF sleek controls in development at RedEddieLabs.
 
 ## Overview
 
@@ -125,4 +125,4 @@ For questions or feedback, please contact [Eddie Ruano](mailto:secretary@ruanoes
 
 ---
 
-Created with ❤️ by EddieLabs.
+Created with ❤️ by RedEddieLabs.
